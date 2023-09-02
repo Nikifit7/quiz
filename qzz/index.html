@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Time </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to bottom, #00ff00, #0000ff);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #fff;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      background-color: #000;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .options {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .options li {
+      margin-bottom: 10px;
+    }
+
+    .options label {
+      display: block;
+      cursor: pointer;
+      padding: 10px;
+      background-color: #0f0;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px #000;
+      transition: background-color 0.3s;
+    }
+
+    .options label:hover {
+      background-color: #295b68;
+    }
+
+    .correct {
+      background-color: #39ff14 !important;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .button-container button {
+      padding: 10px 20px;
+      background-color: #ff00ff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .button-container button:hover {
+      background-color: #ff69b4;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #fff;
+    }
+  </style>
+  <script>
+   function showResults() {
+  var questions = document.getElementsByClassName("question");
+  var totalCorrect = 0;
+  var correctAnswers = [];
+
+  for (var i = 0; i < questions.length; i++) {
+    var options = questions[i].getElementsByClassName("option");
+    var selectedAnswer = null;
+
+    for (var j = 0; j < options.length; j++) {
+      if (options[j].checked) {
+        selectedAnswer = options[j].value;
+        break;
+      }
+    }
+
+    if (selectedAnswer === "correct") {
+      totalCorrect++;
+      correctAnswers.push(i + 1);
+    } else if (selectedAnswer !== null) {
+      // Change the color of the wrong answer
+      options[j].parentNode.style.color = "red";
+    }
+  }
+
+  var resultContainer = document.getElementById("result-container");
+  resultContainer.innerHTML = "You got " + totalCorrect + " question(s) correct.";
+  resultContainer.style.display = "block";
+
+  var correctAnswersContainer = document.getElementById("correct-answers");
+  correctAnswersContainer.innerHTML = "Correct answers: " + correctAnswers.join(", ");
+  correctAnswersContainer.style.display = "block";
+}
+
+  </script>
+</head>
+<body>
+  <h1>Quiz Game</h1>
+
+  <div id="quiz-container">
+    <!-- Question 1 -->
+    <div class="question">
+      <h2> 1.The Sahara Desert is the largest hot desert in the world?</h2>
+      <ul class="options">
+        <li>
+          <label>
+            <input type="radio" name="q1" class="option" value="false">
+            True
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="q1" class="option" value="correct">
+            False
+          </label>
+        </li>
+      </ul>
+    </div>
+    <div class="question">
+      <h2>2.The capital of Japan is Beijing?</h2>
+      <ul class="options">
+        <li>
+          <label>
+            <input type="radio" name="q2" class="option" value="false">
+            True
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="q2" class="option" value="correct">
+            False
+          </label>
+        </li>
+      </ul>
+    </div>
+    <div class="question">
+        <h2>3.English is the most widely spoken language in the world?</h2>
+        <ul class="options">
+          <li>
+            <label>
+              <input type="radio" name="q3" class="option" value="false">
+              True
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="q3" class="option" value="correct">
+              False
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="question">
+        <h2>4.The Eiffel Tower is located in London?</h2>
+        <ul class="options">
+          <li>
+            <label>
+              <input type="radio" name="q4" class="option" value="false">
+              True
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="q4" class="option" value="correct">
+              False
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="question">
+        <h2>5.Bananas grow on trees?</h2>
+        <ul class="options">
+          <li>
+            <label>
+              <input type="radio" name="q5" class="option" value="false">
+              True
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="q5" class="option" value="correct">
+              False
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="question">
+        <h2>6.Elephants are the smallest animals in the world?</h2>
+        <ul class="options">
+          <li>
+            <label>
+              <input type="radio" name="q6" class="option" value="false">
+              True
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="q6" class="option" value="correct">
+              False
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="question">
+        <h2>7.An octopus has three hearts?</h2>
+        <ul class="options">
+          <li>
+            <label>
+              <input type="radio" name="q7" class="option" value="false">
+              True
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="q7" class="option" value="correct">
+              False
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="question">
+        <h2>8.The highest mountain in the world is Mount Everest?</h2>
+        <ul class="options">
+          <li>
+            <label>
+              <input type="radio" name="q8" class="option" value="false">
+              True
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="q8" class="option" value="correct">
+              False
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="question">
+        <h2>9.The smallest country in the world by land area is Vatican City?</h2>
+        <ul class="options">
+          <li>
+            <label>
+              <input type="radio" name="q9" class="option" value="false">
+              True
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="q9" class="option" value="correct">
+              False
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="question">
+        <h2>10.The femur, or thigh bone, is the largest bone in the human body?</h2>
+        <ul class="options">
+          <li>
+            <label>
+              <input type="radio" name="q10" class="option" value="false">
+              True
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="q10" class="option" value="correct">
+              False
+            </label>
+          </li>
+        </ul>
+      </div>
+
+    <!--  add more questions here, remeber to change the q number  -->
+    
+  </div>
+
+  <div class="button-container">
+    <button onclick="showResults()">Submit</button>
+  </div>
+
+  <div id="result-container" class="result" style="display: none;"></div>
+  <div id="correct-answers" class="result" style="display: none;"></div>
+</body>
+</html>
